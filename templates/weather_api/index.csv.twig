@@ -1,0 +1,11 @@
+name,country,date,temperature(Celsius),temperature(Fahrenheit),cloudiness,chanceOfRain,pressure
+{% for measurement in measurements -%}
+    {{- name }},
+    {{- country }},
+    {{- measurement.date|date('Y-m-d') }},
+    {{- measurement.temperature }},
+    {{- measurement.fahrenheit }},
+    {{- measurement.cloudiness }}",
+    {{- measurement.chanceOfRain }}",
+    {{- measurement.pressure }}"
+{% endfor %}

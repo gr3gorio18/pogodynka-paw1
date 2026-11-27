@@ -1,0 +1,16 @@
+{
+    "name": "{{ name }}",
+    "country": "{{ country }}",
+    "measurements": [
+        {% for measurement in measurements %}
+        {
+            "date": "{{ measurement.date|date('Y-m-d')|raw }}",
+            "temperature(Celsius)": "{{ measurement.temperature }}",
+            "temperature(Fahrenheit)": "{{ measurement.fahrenheit }}",
+            "cloudiness": "{{ measurement.cloudiness }}",
+            "chanceOfRain": "{{ measurement.chanceOfRain|raw }}",
+            "pressure": "{{ measurement.pressure }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}
